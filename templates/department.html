@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block title %}
+Add Department
+{% endblock title %}
+
+
+
+{% block body %}
+ <h3 class="text-center bg-danger text-white"><span>Add Department</span> </h3>
+  
+{% with messages=get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{message}}
+
+
+</div>
+  {% endfor %}
+  {% endif %}
+  {% endwith %}
+<br>
+<div class="container" id="dept">
+
+<div class="row">
+
+<div class="col-md-4"></div>
+<div class="col-md-4">
+
+<form action="/department" method="post" id="dept-form">
+
+
+<div class="form-group">
+<label for="dept">Enter Department</label>
+<input type="text" class="form-control" name="dept" id="dept">
+</div>
+<br>
+
+  <button type="submit" class="btn btn-danger btn-sm btn-block">Add Department</button>
+</form>
+<br>
+<br>
+
+</div>
+
+<div class="col-md-4"></div>
+
+</div></div>
+
+<div class="container mt-4">
+  <h4>Existing Departments</h4>
+  <ul class="list-group">
+    {% for d in depts %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ d.branch }}
+        <span>
+          <a href="/department/delete/{{ d.cid }}" class="btn btn-sm btn-danger" onclick="return confirm('Delete this department?');">Delete</a>
+        </span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+{% endblock body %}
