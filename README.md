@@ -10,7 +10,6 @@
 A web-based student management system built with Flask, designed to efficiently manage student records, departments, attendance, and administrative operations. The system provides secure authentication, detailed logs, and is deployed for live use.
 
 
-
 🌐 Live Demo
 
 👉 Access the application here:
